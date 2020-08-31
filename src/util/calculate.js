@@ -12,7 +12,7 @@ const calculate = (currencyOne, amountOne, currencyTwo) => {
          return console.log(err);
       } 
       const db = client.db(databaseName);
-      const value = db.collection('FxRates').find().toArray( (err, result) => {
+      db.collection('FxRates').find().toArray( (err, result) => {
 
         const rateValue = +result[0][currencyTwo] / +result[0][currencyOne];
         const message = `1 ${currencyOne} = ${+result[0][currencyTwo] / +result[0][currencyOne]} ${currencyTwo}`;
@@ -22,10 +22,8 @@ const calculate = (currencyOne, amountOne, currencyTwo) => {
             rate: rateValue,
             text: message,
             answer: resultMessage,
-            // date: `Last updated: ${parsedData.FxRates.FxRate[0].Dt[0]}`
-            date: resultMessage
+            date: `Last updated: ${result.FxRates.FxRate[0].Dt[0]}`
         }
-        console.log(obj);
         return obj;
       }); 
   }); 

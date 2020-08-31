@@ -28,13 +28,14 @@ const fetchData = function fetchData () {
 
                   let rawdata = fs.readFileSync("parsedRates.json");
                   let parsedData = JSON.parse(rawdata);
-                
-                  const currencies = {};
+
+                  const currencies = {EUR: '1'};
                   for (let i = 0; i<parsedData.FxRates.FxRate.length; i++) {
-                      currencies[`${parsedData.FxRates.FxRate[i].CcyAmt[1].Ccy[0]}`] = `${parsedData.FxRates.FxRate[i].CcyAmt[1].Amt[0]}`;
+                    currencies[`${parsedData.FxRates.FxRate[i].CcyAmt[1].Ccy[0]}`] = `${parsedData.FxRates.FxRate[i].CcyAmt[1].Amt[0]}`;
                   }
 
                   const db = client.db(databaseName);
+                  db.collection('FxRates').deleteOne({});
                   db.collection('FxRates').insertOne(currencies, (err, result) => {
                       if (err) {
                           return console.log('Unable to insert data');

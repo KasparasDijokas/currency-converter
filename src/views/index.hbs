@@ -18,17 +18,19 @@
 <form>
  <div class="main-currency">
             <select id="currency-one" name="currencyOne">
+                {{!-- <option value="EUR">EUR</option> --}}
             </select>
             <input type="number" value="1" name="amountOne" id="amount-one">
         </div>
         <div class="swap-container">
             <button class="btn" id="swap">swap</button>
-            <p id="rate" name="rate">1.1652</p>
+            <p id="rate" name="rate">1 EUR = 1 EUR</p>
         </div>
         <div class="second-currency">
             <select id="currency-two" name="currencyTwo">
+                {{!-- <option value="EUR">EUR</option> --}}
             </select>
-            <input type="number" id="amount-two" readonly="true" name="amountTwo">
+            <p type="number" id="amount-two" name="amountTwo">1 EUR = 1 EUR</p>
         </div>
         <button type="submit">submit</button>
              </form>

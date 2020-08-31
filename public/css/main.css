@@ -81,6 +81,7 @@ input {
     padding: 5px 12px;
 }
 
-p {
-    margin: 0;
+#amountTwo {
+    width: 120px;
+    text-align: center;
 }
