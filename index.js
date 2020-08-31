@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const hbs = require('hbs');
 const calculate = require('./src/util/calculate.js');
+const fetchData = require('./src/util/fetch-data.js');
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 
@@ -19,11 +20,11 @@ app.use(express.static(publicDirectory));
 
 app.get('/', (req, res) => {
     res.render('index');
-    calculate.fetchData();
+    fetchData();
 })
 
 app.get('/calculate', (req, res) => {
-    const result = calculate.calculate(req.query['currencyOne'], req.query['amountOne'], req.query['currencyTwo']);
+    const result = calculate(req.query['currencyOne'], req.query['amountOne'], req.query['currencyTwo']);
     res.send(result);
 
     MongoClient.connect(connectionURL, {useNewUrlParser: true, useUnifiedTopology: true}, (err, client) => {
@@ -31,12 +32,12 @@ app.get('/calculate', (req, res) => {
            return console.log(err);
         } 
         const db = client.db(databaseName);
-        db.collection('data').insertOne(result, (err, result) => {
-            if (err) {
-                return console.log('Unable to insert data');
-            }
-            console.log(result.ops);
-        })
+        // db.collection('User-data').insertOne(result, (err, result) => {
+        //     if (err) {
+        //         return console.log('Unable to insert data');
+        //     }
+        //     console.log(result.ops);
+        // })
 
         // db.collection('users').findOne({ name: 'Jen'}, (err, item) => {
         //     if (err) {

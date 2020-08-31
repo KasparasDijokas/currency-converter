@@ -101,7 +101,7 @@ swap.addEventListener("click", (event) => {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-fetch(`/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
+fetch(`localhost:3000/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
 	res.json().then(data => {
 		amountTwo.value = data.answer;
 		rate.innerHTML = data.text;
