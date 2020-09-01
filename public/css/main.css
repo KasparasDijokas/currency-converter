@@ -34,18 +34,22 @@ h1 {
     margin-top: 30px;
 }
 
+.main-currency {
+    margin-top: 20px;
+}
+
 .swap-container {
     display: flex;
     justify-content: space-between;
     margin-top: 30px;
     align-items: center;
-    /* height: auto; */
 }
 
 #rate {
     color: var(--primary-color);
     font-size: 14px;
     padding: 0 10px;
+    font-weight: bold;
   }
 
 select {
@@ -58,6 +62,7 @@ select {
     background-position: right 6px top 50%, 0, 0;
     background-size: 12px auto, 100%;
     background-repeat: no-repeat;
+    max-height: 38px;
 }
 
 select:focus, input:focus, button:focus {
@@ -67,9 +72,9 @@ select:focus, input:focus, button:focus {
 input {
     width: 120px;
     text-align: center;
-    border: none;
+    border: 1px solid #5fbaa7;
+    border-radius: 4px;
     font-size: 20px;
-    background-color: transparent;
 }
 
 .btn {
@@ -99,7 +104,8 @@ input {
 	font-weight:bold;
 	padding:13px 32px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #3d768a;
+    text-shadow:0px 1px 0px #3d768a;
+    margin-top: 20px;
 }
 .myButton:hover {
 	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
@@ -110,6 +116,12 @@ input {
 	top:1px;
 }
 
-select {
-    max-height: 38px;
+.date {
+    position: absolute;
+    bottom: 0;
+}
+.date p {
+    font-weight: bold;
+    font-size: 14px;
+    color: #044637;
 }

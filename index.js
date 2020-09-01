@@ -7,7 +7,7 @@ const { send } = require("process");
 const calculate = require("./src/util/calculate.js");
 const MongoClient = mongodb.MongoClient;
 
-const localConnection = "mongodb://localhost:27017";
+// const connectionURL = "mongodb://localhost:27017";
 const connectionURL = "mongodb://kdijokas:H48fG59HMn7qWab2XBeof0vhU8LeoVr5fPv7vXEsbIerVLVVJLuvAnI1dL6sdj7752VsgTCk4D9TAWrV3Wvm1Q==@kdijokas.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@kdijokas@";
 const databaseName = "rates";
 
@@ -24,13 +24,14 @@ app.get("/", (req, res) => {
   fetchData();
 });
 
+// get user input -- calculate resul -- save data to db
 app.get("/calculate", (req, res) => {
   const currencyOne = req.query.currencyOne;
   const currencyTwo = req.query.currencyTwo;
   const amountOne = req.query.amountOne;
 
   MongoClient.connect(
-    localConnection,
+    connectionURL,
     { useNewUrlParser: true, useUnifiedTopology: true },
     (err, client) => {
       if (err) {
@@ -52,6 +53,7 @@ app.get("/calculate", (req, res) => {
             currencyTwo,
             updateDate
           );
+          console.log(obj);
 
           db.collection("user-data").insertOne(
             {

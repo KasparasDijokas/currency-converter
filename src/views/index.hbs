@@ -13,14 +13,11 @@
             <h1>Exchange Rate Calculator</h1>
             <p>Choose the currency and the amounts to get the exchange rate</p>
         </div>
-
-
 <form>
  <div class="main-currency">
             <select id="currency-one" name="currencyOne">
-                {{!-- <option value="EUR">EUR</option> --}}
             </select>
-            <input type="number" value="1" name="amountOne" id="amount-one">
+            <input type="number" value="1" min="0" step="any" name="amountOne" id="amount-one">
         </div>
         <div class="swap-container">
             <button class="btn" id="swap">swap</button>
@@ -28,13 +25,11 @@
         </div>
         <div class="second-currency">
             <select id="currency-two" name="currencyTwo">
-                {{!-- <option value="EUR">EUR</option> --}}
             </select>
             <p type="number" id="amount-two" name="amountTwo">1 EUR = 1.00 EUR</p>
         </div>
         <button type="submit" class="myButton">Calculate</button>
              </form>
-
              <div class="date">
                  <p id="date"></p>
              </div>

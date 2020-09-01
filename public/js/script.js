@@ -33,7 +33,6 @@ render(currencyOne);
 render(currencyTwo);
 })
 
-
 const currencyOne = document.getElementById("currency-one");
 const amountOne = document.getElementById("amount-one");
 const currencyTwo = document.getElementById("currency-two");
@@ -54,7 +53,8 @@ swap.addEventListener("click", (event) => {
 form.addEventListener('submit', e => {
   e.preventDefault();
 
-fetch(`http://localhost:3000/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
+  // add 'http://localhost:3000' before '/calculate?currencyOne....' to run on your local server
+fetch(`/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
 	res.json().then(data => {
 		console.log(data);
 		rateContainer.innerHTML = data.text;
