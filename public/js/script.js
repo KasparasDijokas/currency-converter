@@ -1,7 +1,8 @@
 // fetch data from lb.lt
 // render currencies
-// const cors = 'https://thingproxy.freeboard.io/fetch/';
-fetch('http://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU').then(response => response.text()).then(data => {
+const cors = 'https://thingproxy.freeboard.io/fetch/';
+// const cors = 'https://cors-anywhere.herokuapp.com/';
+fetch(`${cors}https://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU`).then(response => response.text()).then(data => {
 const xml = data;  
 const parser = new DOMParser();
 const xmlDoc = parser.parseFromString(xml, "text/xml");
@@ -43,6 +44,8 @@ const swap = document.getElementById("swap");
 const rateContainer = document.getElementById("rate");
 const form = document.querySelector('form');
 const date = document.getElementById('date');
+const loader = document.querySelector('.loadingspinner');
+const calculateBtn = document.querySelector('.myButton');
 
 swap.addEventListener("click", (event) => {
     const temp = currencyOne.value;
@@ -53,14 +56,17 @@ swap.addEventListener("click", (event) => {
 // fetch user input
 form.addEventListener('submit', e => {
   e.preventDefault();
+  loader.classList.add('show');
+  calculateBtn.classList.add('show');
 
   // add 'http://localhost:3000' before '/calculate?currencyOne....' to run on your local server
-fetch(`/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
+fetch(`http://localhost:3000/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
 	res.json().then(data => {
-		console.log(data);
-		rateContainer.innerHTML = data.text;
+		rateContainer.innerHTML = data.text; // nepasiekiu elementu
 		amountTwo.innerHTML = data.answer;
 		date.innerHTML = data.date;
+		loader.classList.remove('show');
+		calculateBtn.classList.remove('show');
 	})
 })
 })
