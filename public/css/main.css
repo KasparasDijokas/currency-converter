@@ -102,31 +102,31 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .myButton {
-    box-shadow: 0px 10px 14px -7px #276873;
-    background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-    background-color: #599bb3;
-    border-radius: 8px;
-    display: inline-block;
-    cursor: pointer;
-    color: #ffffff;
-    font-family: Arial;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 8px 16px;
-    text-decoration: none;
-    text-shadow: 0px 1px 0px #3d768a;
-  }
-  .myButton.show {
-    display: none;
-  }
-  .myButton:hover {
-    background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-    background-color: #408c99;
-  }
-  .myButton:active {
-    position: relative;
-    top: 1px;
-  }
+  box-shadow: 0px 10px 14px -7px #276873;
+  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background-color: #599bb3;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #3d768a;
+}
+.myButton.show {
+  display: none;
+}
+.myButton:hover {
+  background: linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+  background-color: #408c99;
+}
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
 
 .result-container {
   display: flex;
@@ -135,9 +135,9 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 10px;
 }
 .border {
-    width: 300px;
-    margin: auto;
-    border-bottom: 2px solid #599bb3;
+  width: 300px;
+  margin: auto;
+  border-bottom: 2px solid #599bb3;
 }
 
 #amount-two {
@@ -156,8 +156,6 @@ input[type="number"]::-webkit-outer-spin-button {
   /* color: var(--primary-color); */
   text-align: start;
 }
-
-
 
 /* loading dots */
 
@@ -221,28 +219,31 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-top: 20px;
 }
 
-
 /* MEDIA */
 
 @media (max-width: 700px) {
-    #amount-two {
-        width: 100%;
-        padding: 20px
-    }
-    .main-currency {
-        grid-template-columns: repeat(4, 1fr);
-      }
+  #amount-two {
+    width: 100%;
+    padding: 20px;
+  }
+  .main-currency {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
-      .myButton {
-          margin: 20px 0;
-          grid-column: 1 / span 5;
-      }
+  .myButton {
+    margin: 20px 0;
+    grid-column: 1 / span 5;
+  }
 
-      .footer {
-          display: none;
-      }
+  .footer {
+    display: none;
+  }
 
-      .result-container {
-          margin-top: 200px;
-      }
+  .result-container {
+    margin-top: 200px;
+  }
+  .loadingspinner {
+    margin: 20px 0;
+    grid-column: 1 / span 5;
+  }
 }

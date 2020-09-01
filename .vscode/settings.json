@@ -2,5 +2,7 @@
     "appService.zipIgnorePattern": [
         "node_modules{,/**}",
         ".vscode{,/**}"
-    ]
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/d28f8c19-4b34-4ffe-a5ce-d13a43fcf1f8/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/dijokas-converter",
+    "appService.deploySubpath": "."
 }

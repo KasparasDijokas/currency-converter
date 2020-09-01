@@ -5,6 +5,7 @@ const fetchData = require("./src/util/fetch-data.js");
 const mongodb = require("mongodb");
 const { send } = require("process");
 const calculate = require("./src/util/calculate.js");
+const validator = require('validator');
 const MongoClient = mongodb.MongoClient;
 
 // const connectionURL = "mongodb://localhost:27017";
@@ -26,9 +27,10 @@ app.get("/", (req, res) => {
 
 // get user input -- calculate resul -- save data to db
 app.get("/calculate", (req, res) => {
+  let amountOne;
   const currencyOne = req.query.currencyOne;
   const currencyTwo = req.query.currencyTwo;
-  const amountOne = req.query.amountOne;
+  validator.isNumeric(req.query.amountOne) ? amountOne = req.query.amountOne : amountOne = 1;
 
   MongoClient.connect(
     connectionURL,

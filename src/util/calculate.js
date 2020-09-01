@@ -1,6 +1,5 @@
 // calculate exchange rate
 function calculate(currencyOneValue, currencyTwoValue, amountOne, currencyOne, currencyTwo, updateDate) {
-  console.log(currencyOneValue, currencyTwoValue, amountOne, currencyOne, currencyTwo, updateDate);
           const rateValue = +currencyTwoValue / +currencyOneValue;
           const message = `1 ${currencyOne} = ${+currencyTwoValue / +currencyOneValue} ${currencyTwo}`;
           const amount = (+amountOne * rateValue).toFixed(2);

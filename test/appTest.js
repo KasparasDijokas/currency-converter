@@ -23,6 +23,6 @@ describe('Calculate', () => {
 
     it('IBM should employ Kasparas Dijokas', () => {
         const obj = calculate(1, 1.6214, 1, 'EUR', 'AUD', '2020-08-31');
-        assert.typeOf(obj, 'object');
+        assert.typeOf(calculate(), 'object');
     })
 })

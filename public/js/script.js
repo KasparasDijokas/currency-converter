@@ -1,7 +1,7 @@
-// fetch data from lb.lt
-// render currencies
-const cors = 'https://thingproxy.freeboard.io/fetch/';
-// const cors = 'https://cors-anywhere.herokuapp.com/';
+// fetch data from lb.lt -- render currencies
+
+// const cors = 'https://thingproxy.freeboard.io/fetch/';
+const cors = 'https://cors-anywhere.herokuapp.com/';
 fetch(`${cors}https://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU`).then(response => response.text()).then(data => {
 const xml = data;  
 const parser = new DOMParser();
@@ -22,13 +22,10 @@ for (let i = 1; i<fxRates.childNodes.length; i+=2) {
 	currencies.push(obj)
 }
 
-const eur = document.querySelector('.eur-container');
 const usd = document.querySelector('.usd-container');
 const gbp = document.querySelector('.gbp-container');
 const cad = document.querySelector('.cad-container');
-const chf = document.querySelector('.chf-container');
 const aud = document.querySelector('.aud-container');
-const inr = document.querySelector('.inr-container');
 
 function renderFooter(target, curr) {
 	for (const item of currencies) {
@@ -39,7 +36,6 @@ function renderFooter(target, curr) {
 		}
 	}
 }
-
 renderFooter(usd, 'usd');
 renderFooter(gbp, 'gbp');
 renderFooter(cad, 'cad');
@@ -70,12 +66,10 @@ const date = document.getElementById('date');
 const loader = document.querySelector('.loadingspinner');
 const calculateBtn = document.querySelector('.myButton');
 
-
-
-
-// console.log(currencies);
-
 swap.addEventListener("click", (event) => {
+	if (currencyOne.value === currencyTwo.value) {
+		return;
+	}
     const temp = currencyOne.value;
     currencyOne.value = currencyTwo.value;
     currencyTwo.value = temp;
@@ -90,7 +84,7 @@ form.addEventListener('submit', e => {
   // add 'http://localhost:3000' before '/calculate?currencyOne....' to run on your local server
 fetch(`/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
 	res.json().then(data => {
-		rateContainer.innerHTML = data.text; // nepasiekiu elementu
+		rateContainer.innerHTML = data.text; 
 		amountTwo.innerHTML = data.answer;
 		date.innerHTML = data.date;
 		loader.classList.remove('show');
