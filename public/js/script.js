@@ -1,15 +1,10 @@
-
-const currencies = [];
-
+// fetch data from lb.lt
+// render currencies
 fetch('https://thingproxy.freeboard.io/fetch/http://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU').then(response => response.text()).then(data => {
 const xml = data;  
 const parser = new DOMParser();
 const xmlDoc = parser.parseFromString(xml, "text/xml");
-
 const fxRates = xmlDoc.getElementsByTagName('FxRates')[0];
-
-const keys = Object.keys(fxRates).length;
-const date = fxRates.childNodes[1].childNodes[3];
 
 const currencies = [];
 
@@ -24,7 +19,6 @@ for (let i = 1; i<fxRates.childNodes.length; i+=2) {
 	}
 	currencies.push(obj)
 }
-console.log(currencies);
 
 function render(target) {
   for (const value of currencies) {
@@ -38,7 +32,6 @@ function render(target) {
 render(currencyOne);
 render(currencyTwo);
 })
-
 
 
 const currencyOne = document.getElementById("currency-one");
@@ -57,7 +50,7 @@ swap.addEventListener("click", (event) => {
     currencyTwo.value = temp;
 });
 
-
+// fetch user input
 form.addEventListener('submit', e => {
   e.preventDefault();
 
