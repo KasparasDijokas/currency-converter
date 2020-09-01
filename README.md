@@ -21,5 +21,5 @@ To run app on your local server and to save data to local database:
 
   comment out line 12
   
-4. download robo 3t platform 
+4. Optional: download robo 3t platform 
 https://robomongo.org/
