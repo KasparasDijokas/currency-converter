@@ -7,8 +7,8 @@ const { send } = require("process");
 const calculate = require("./src/util/calculate.js");
 const MongoClient = mongodb.MongoClient;
 
-const connectionURL = "mongodb://localhost:27017";
-// const connectionURL = "mongodb://kdijokas:H48fG59HMn7qWab2XBeof0vhU8LeoVr5fPv7vXEsbIerVLVVJLuvAnI1dL6sdj7752VsgTCk4D9TAWrV3Wvm1Q==@kdijokas.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@kdijokas@";
+// const connectionURL = "mongodb://localhost:27017";
+const connectionURL = "mongodb://kdijokas:H48fG59HMn7qWab2XBeof0vhU8LeoVr5fPv7vXEsbIerVLVVJLuvAnI1dL6sdj7752VsgTCk4D9TAWrV3Wvm1Q==@kdijokas.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@kdijokas@";
 const databaseName = "rates";
 
 const app = express();

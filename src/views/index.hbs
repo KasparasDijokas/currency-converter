@@ -11,20 +11,19 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="img/money.png" alt="money-image" id="img">
+            <img src="img/money.png" alt="money-image" id="logo">
             <h1>Exchange Rate Calculator</h1>
             <p>Choose the currency and the amounts to get the exchange rate</p>
         </div>
         <form>
             <div class="main-currency">
-                <input type="number" value="1" min="0" step="any" max="999" name="amountOne" id="amount-one">
+                <input type="number" value="1" min="0" step="any" name="amountOne" id="amount-one">
                 <select id="currency-one" name="currencyOne"></select>
-                <button class="btn" id="swap">swap</button>
+                <button class="btn" id="swap">Swap</button>
                 <select id="currency-two" name="currencyTwo">
                 <button type="submit" class="myButton">Calculate</button>
             </div>
             <div class="swap-container">
-                <p id="rate" name="rate">1 EUR = 1 EUR</p>
             </div>
             <div class="second-currency">
                 </select>
@@ -34,11 +33,40 @@
             </div>
             <div class="loader"></div>
         </form>
+
+        <div class="result-container">
         <div class="date">
             <p id="date"></p>
         </div>
+        <p id="rate" name="rate"></p>
+        </div>
+        <div class="border"></div>
+        <div type="number" id="amount-two" name="amountTwo"></div>
+        <div class="footer">
+            <div class="footer-container eur-container">
+                <img src="img/eur.svg" alt="eur-image">
+                <p>1 EUR</p>
+            </div>
+            <div class="footer-container usd-container">
+                <img src="img/usa.svg" alt="usd-image">
+            </div>
+            <div class="footer-container gbp-container">
+                <img src="img/uk.svg" alt="gbp-image">
+            </div>
+            <div class="footer-container cad-container">
+                <img src="img/canada.svg" alt="cad-image">
+            </div>
+            {{!-- <div class="footer-container chf-container">
+                <img src="img/swis.svg" alt="chf-image">
+            </div> --}}
+            <div class="footer-container aud-container">
+                <img src="img/aud.svg" alt="aud-image">
+            </div>
+            {{!-- <div class="footer-container inr-container">
+                <img src="img/inr.svg" alt="inr-image">
+            </div> --}}
+        </div>
     </div>
-    <p type="number" id="amount-two" name="amountTwo"></p>
     <script type="module" src="./js/script.js"></script>
 </body>
 

@@ -22,12 +22,35 @@ for (let i = 1; i<fxRates.childNodes.length; i+=2) {
 	currencies.push(obj)
 }
 
+const eur = document.querySelector('.eur-container');
+const usd = document.querySelector('.usd-container');
+const gbp = document.querySelector('.gbp-container');
+const cad = document.querySelector('.cad-container');
+const chf = document.querySelector('.chf-container');
+const aud = document.querySelector('.aud-container');
+const inr = document.querySelector('.inr-container');
+
+function renderFooter(target, curr) {
+	for (const item of currencies) {
+		if (item.currency === curr.toUpperCase()) {
+			const p = document.createElement('p');
+			p.innerHTML = item.rate;
+			target.append(p)
+		}
+	}
+}
+
+renderFooter(usd, 'usd');
+renderFooter(gbp, 'gbp');
+renderFooter(cad, 'cad');
+renderFooter(aud, 'aud');
+
 function render(target) {
   for (const value of currencies) {
     const option = document.createElement("option");
     option.value = value.currency;
     option.innerHTML = value.currency;
-    target.append(option);
+	target.append(option);
   }
 }
 
@@ -47,6 +70,11 @@ const date = document.getElementById('date');
 const loader = document.querySelector('.loadingspinner');
 const calculateBtn = document.querySelector('.myButton');
 
+
+
+
+// console.log(currencies);
+
 swap.addEventListener("click", (event) => {
     const temp = currencyOne.value;
     currencyOne.value = currencyTwo.value;
@@ -60,7 +88,7 @@ form.addEventListener('submit', e => {
   calculateBtn.classList.add('show');
 
   // add 'http://localhost:3000' before '/calculate?currencyOne....' to run on your local server
-fetch(`http://localhost:3000/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
+fetch(`/calculate?currencyOne=${currencyOne.value}&amountOne=${amountOne.value}&currencyTwo=${currencyTwo.value}`).then(res => {
 	res.json().then(data => {
 		rateContainer.innerHTML = data.text; // nepasiekiu elementu
 		amountTwo.innerHTML = data.answer;
