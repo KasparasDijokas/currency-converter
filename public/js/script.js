@@ -1,6 +1,7 @@
 // fetch data from lb.lt
 // render currencies
-fetch('https://thingproxy.freeboard.io/fetch/http://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU').then(response => response.text()).then(data => {
+// const cors = 'https://thingproxy.freeboard.io/fetch/';
+fetch('http://lb.lt//webservices/FxRates/FxRates.asmx/getCurrentFxRates?tp=EU').then(response => response.text()).then(data => {
 const xml = data;  
 const parser = new DOMParser();
 const xmlDoc = parser.parseFromString(xml, "text/xml");

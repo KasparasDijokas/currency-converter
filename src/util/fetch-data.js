@@ -23,7 +23,6 @@ const fetchData = function fetchData() {
           } else {
             fs.writeFileSync("parsedRates.json", JSON.stringify(result));
             saveToDatabase();
-            console.log("data is fetched");
           }
         });
       }

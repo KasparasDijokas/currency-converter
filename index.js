@@ -53,7 +53,6 @@ app.get("/calculate", (req, res) => {
             currencyTwo,
             updateDate
           );
-          console.log(obj);
 
           db.collection("user-data").insertOne(
             {
@@ -77,6 +76,4 @@ app.get("/calculate", (req, res) => {
 });
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log("app is running");
-});
+app.listen(port, () => {});
